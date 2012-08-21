@@ -1,24 +1,21 @@
-# Copyright (C) 2007-2009 LuaDist.
+# Copyright (C) 2007-2012 LuaDist.
 # Created by Peter Kapec
 # Redistribution and use of this file is allowed according to the terms of the MIT license.
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
-PROJECT(lsqlite3 C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-INCLUDE(dist.cmake)
+project ( lsqlite3 C )
+cmake_minimum_required ( VERSION 2.8 )
+include ( cmake/dist.cmake )
+include ( lua )
 
 # Find SQLite3
-FIND_PACKAGE(SQLite3 REQUIRED)
-INCLUDE_DIRECTORIES (${SQLITE3_INCLUDE_DIRS})
+find_package ( SQLite3 REQUIRED )
+include_directories ( ${SQLITE3_INCLUDE_DIRS} )
 
 # Create lsqlite module
-ADD_LUA_MODULE(lsqlite3 lsqlite3.c lsqlite3.def)
-TARGET_LINK_LIBRARIES(lsqlite3 ${SQLITE3_LIBRARIES})
-
-# install lsqlite
-INSTALL(TARGETS lsqlite3 DESTINATION ${INSTALL_CMOD})
-INSTALL(FILES HISTORY README DESTINATION ${INSTALL_DATA})
-INSTALL(DIRECTORY doc/ DESTINATION ${INSTALL_DOC})
-INSTALL(FILES lunit.lua test.lua tests-sqlite3.lua  DESTINATION ${INSTALL_TEST})
-INSTALL(DIRECTORY examples/ DESTINATION ${INSTALL_EXAMPLE})
+install_lua_module ( lsqlite3 lsqlite3.c lsqlite3.def LINK ${SQLITE3_LIBRARIES} )
+install_data ( HISTORY README )
+install_doc( doc/ )
+install_test ( lunit.lua test.lua tests-sqlite3.lua )
+install_example ( examples/ )
