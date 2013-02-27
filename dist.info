@@ -1,0 +1,48 @@
+type = "x86_64"
+arch = "Ubuntu"
+author = "Tiago Dionizio, Doug Currie"
+depends = {
+[[lua ~> 5.1]],
+[[libsqlite3 >=3.5]],
+}
+
+desc = "LuaSQLite 3 is a thin wrapper around the public domain SQLite3 database engine."
+version = "0.6devel"
+maintainer = "Peter Kapec"
+files = {
+Runtime = {
+[[lib/lua/lsqlite3.so]],
+}
+,
+Test = {
+[[share/lsqlite3/test/lunit.lua]],
+[[share/lsqlite3/test/test.lua]],
+[[share/lsqlite3/test/tests-sqlite3.lua]],
+}
+,
+Example = {
+[[share/lsqlite3/example//smart.lua]],
+[[share/lsqlite3/example//simple.lua]],
+[[share/lsqlite3/example//function.lua]],
+[[share/lsqlite3/example//statement.lua]],
+[[share/lsqlite3/example//tracing.lua]],
+[[share/lsqlite3/example//order.lua]],
+[[share/lsqlite3/example//aggregate.lua]],
+}
+,
+Data = {
+[[share/lsqlite3/HISTORY]],
+[[share/lsqlite3/README]],
+}
+,
+Documentation = {
+[[share/lsqlite3/doc//lsqlite3.html]],
+[[share/lsqlite3/doc//pod2html.pl]],
+[[share/lsqlite3/doc//lsqlite3.pod]],
+}
+,
+}
+
+license = "MIT"
+name = "lsqlite3"
+url = "http://luaforge.net/projects/luasqlite/"
